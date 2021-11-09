@@ -44,11 +44,11 @@ int	check_death(t_meta *data, int i)
 		if ((make_time() - data->philo[i].t_lasteat) > data->t_die)
 		{
 			data->status = DEAD;
-			// while (data->n_philo >= 0)
-			// {
-			// 	data->philo[data->n_philo].status = DEAD;
-			// 	data->n_philo--;
-			// }
+			while (data->n_philo >= 0)
+			{
+				data->philo[data->n_philo].status = DEAD;
+				data->n_philo--;
+			}
 			talk(" died", &data->philo[i]);
 			pthread_mutex_unlock(&data->shrodinger);
 			pthread_mutex_unlock(&data->write);
